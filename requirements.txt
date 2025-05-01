@@ -1,0 +1,4 @@
+python-telegram-bot
+requests
+schedule
+# Se tiver mais dependências, adicione uma por linha
