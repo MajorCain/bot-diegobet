@@ -1,4 +1,2 @@
-python-telegram-bot
 requests
-schedule
-# Se tiver mais dependências, adicione uma por linha
+python-telegram-bot==20.3
