@@ -1,13 +1,12 @@
 import requests
 import datetime
 import asyncio
-import os
 from telegram import Bot
 
 # === CONFIGURAÇÃO ===
-TELEGRAM_TOKEN = os.getenv("7516769955:AAGGmyqQ5-jNtxuzVNXU3iSQrzS8p5adzTo")
-TELEGRAM_CHAT_ID = os.getenv("1306578324")
-API_KEY = os.getenv("22c4b502df2fa1cf1c3194223a04f724 ")  # Football-Data.org
+TELEGRAM_TOKEN = os.getenv('7516769955:AAGGmyqQ5-jNtxuzVNXU3iSQrzS8p5adzTo') # substitua pelo token real do seu bot
+TELEGRAM_CHAT_ID = os.getenv('1306578324')    # seu chat id
+API_KEY = os.getenv('b391de2d45cf4c54a36d7ed7d6461dee')  # Football-Data.org
 BASE_URL = 'https://api.football-data.org/v4/'
 
 HEADERS = {
@@ -15,6 +14,8 @@ HEADERS = {
 }
 
 LIGAS = ['BSA', 'PD', 'BL1', 'SA', 'FL1', 'CL', 'PPL', 'DED', 'ELC']
+
+# === FUNÇÕES ===
 
 def get_jogos_hoje(liga):
     hoje = datetime.datetime.now().date()
@@ -91,5 +92,5 @@ async def main():
 
     await enviar_telegram(texto_final)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     asyncio.run(main())
