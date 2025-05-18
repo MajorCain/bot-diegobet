@@ -1,12 +1,12 @@
 import requests
 import datetime
 import asyncio
-from telegram import Bot
+import telegram
 
 # === CONFIGURAÇÃO ===
-TELEGRAM_TOKEN = os.getenv('7516769955:AAGGmyqQ5-jNtxuzVNXU3iSQrzS8p5adzTo') # substitua pelo token real do seu bot
-TELEGRAM_CHAT_ID = os.getenv('1306578324')    # seu chat id
-API_KEY = os.getenv('b391de2d45cf4c54a36d7ed7d6461dee')  # Football-Data.org
+TELEGRAM_TOKEN = '7516769955:AAGGmyqQ5-jNtxuzVNXU3iSQrzS8p5adzTo'
+TELEGRAM_CHAT_ID = '1306578324'
+API_KEY = 'b391de2d45cf4c54a36d7ed7d6461dee'  # Football-Data.org
 BASE_URL = 'https://api.football-data.org/v4/'
 
 HEADERS = {
@@ -55,7 +55,7 @@ def gerar_sugestao(gols_time1, gols_time2):
     return sugestoes
 
 async def enviar_telegram(texto):
-    bot = Bot(token=TELEGRAM_TOKEN)
+    bot = telegram.Bot(token=TELEGRAM_TOKEN)
     await bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=texto, parse_mode='HTML')
 
 async def main():
@@ -92,5 +92,5 @@ async def main():
 
     await enviar_telegram(texto_final)
 
-if __name__ == '__main__':
-    asyncio.run(main())
+# === EXECUÇÃO ===
+asyncio.run(main())
